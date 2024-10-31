@@ -1,0 +1,23 @@
+id_bai_viet,tieu_de,ngay_dang,chuyen_muc,tu_khoa,so_luot_xem,so_binh_luan,luot_chia_se,tom_tat_noi_dung,link_bai_viet,tac_gia,do_dai_bai_viet
+1,Bài viết 1,2023-10-01,Giải trí,"âm nhạc, ca sĩ",1000,50,20,"Nội dung tóm tắt 1",http://kenh14.vn/bai-viet-1.htm,Nguyễn Văn A,500
+2,Bài viết 2,2023-10-02,Thể thao,"bóng đá, cầu thủ",2000,80,30,"Nội dung tóm tắt 2",http://kenh14.vn/bai-viet-2.htm,Trần Thị B,600
+3,Bài viết 3,2023-10-03,Thời trang,"thời trang, xu hướng",1500,40,25,"Nội dung tóm tắt 3",http://kenh14.vn/bai-viet-3.htm,Lê Thị C,550
+4,Bài viết 4,2023-10-04,Công nghệ,"smartphone, AI",1800,60,35,"Nội dung tóm tắt 4",http://kenh14.vn/bai-viet-4.htm,Phạm Văn D,620
+5,Bài viết 5,2023-10-05,Sức khỏe,"dinh dưỡng, tập luyện",1300,30,15,"Nội dung tóm tắt 5",http://kenh14.vn/bai-viet-5.htm,Nguyễn Thị E,480
+6,Bài viết 6,2023-10-06,Giáo dục,"học bổng, du học",1600,55,22,"Nội dung tóm tắt 6",http://kenh14.vn/bai-viet-6.htm,Trần Văn F,510
+7,Bài viết 7,2023-10-07,Kinh doanh,"khởi nghiệp, startup",1700,45,28,"Nội dung tóm tắt 7",http://kenh14.vn/bai-viet-7.htm,Lê Thị G,530
+8,Bài viết 8,2023-10-08,Du lịch,"điểm đến, trải nghiệm",1400,35,18,"Nội dung tóm tắt 8",http://kenh14.vn/bai-viet-8.htm,Phạm Văn H,490
+9,Bài viết 9,2023-10-09,Ẩm thực,"món ngon, công thức",1200,25,12,"Nội dung tóm tắt 9",http://kenh14.vn/bai-viet-9.htm,Nguyễn Thị I,470
+10,Bài viết 10,2023-10-10,Phim ảnh,"phim mới, diễn viên",1900,70,40,"Nội dung tóm tắt 10",http://kenh14.vn/bai-viet-10.htm,Trần Văn J,600
+11,Bài viết 11,2023-10-11,Âm nhạc,"album mới, ca sĩ",2100,85,45,"Nội dung tóm tắt 11",http://kenh14.vn/bai-viet-11.htm,Lê Thị K,650
+12,Bài viết 12,2023-10-12,Thời trang,"thời trang nam, phụ kiện",1600,50,26,"Nội dung tóm tắt 12",http://kenh14.vn/bai-viet-12.htm,Phạm Văn L,560
+13,Bài viết 13,2023-10-13,Giải trí,"showbiz, scandal",2200,90,50,"Nội dung tóm tắt 13",http://kenh14.vn/bai-viet-13.htm,Nguyễn Thị M,680
+14,Bài viết 14,2023-10-14,Công nghệ,"ứng dụng, phần mềm",1750,48,24,"Nội dung tóm tắt 14",http://kenh14.vn/bai-viet-14.htm,Trần Văn N,540
+15,Bài viết 15,2023-10-15,Thể thao,"bóng rổ, vận động viên",1550,42,20,"Nội dung tóm tắt 15",http://kenh14.vn/bai-viet-15.htm,Lê Thị O,520
+16,Bài viết 16,2023-10-16,Sức khỏe,"bệnh tật, phòng ngừa",1350,32,17,"Nội dung tóm tắt 16",http://kenh14.vn/bai-viet-16.htm,Phạm Văn P,500
+17,Bài viết 17,2023-10-17,Kinh doanh,"thị trường, kinh tế",1850,60,33,"Nội dung tóm tắt 17",http://kenh14.vn/bai-viet-17.htm,Nguyễn Thị Q,610
+18,Bài viết 18,2023-10-18,Giáo dục,"kỳ thi, tuyển sinh",1450,38,19,"Nội dung tóm tắt 18",http://kenh14.vn/bai-viet-18.htm,Trần Văn R,480
+19,Bài viết 19,2023-10-19,Du lịch,"ẩm thực đường phố, văn hóa",1250,28,14,"Nội dung tóm tắt 19",http://kenh14.vn/bai-viet-19.htm,Lê Thị S,460
+20,Bài viết 20,2023-10-20,Ẩm thực,"địa điểm ăn uống, review",1150,22,11,"Nội dung tóm tắt 20",http://kenh14.vn/bai-viet-20.htm,Phạm Văn T,450
+21,Bài viết 21,2023-10-21,Phim ảnh,"giải thưởng, lễ trao giải",2000,75,38,"Nội dung tóm tắt 21",http://kenh14.vn/bai-viet-21.htm,Nguyễn Thị U,630
+22,Bài viết 22,2023-10-22,Âm nhạc,"MV mới, nghệ sĩ",2300,95,55,"Nội dung tóm tắt 22",http://kenh14.vn/bai-viet-22.htm,Trần Văn V,700

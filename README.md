@@ -6,10 +6,14 @@ Dự án này được khởi tạo bằng [Create React App](https://github.com
 
 Trong terminal chạy các lệnh sau:
 Cài đặt thư viện Plotly.js và react-plotly.js để tạo biểu đồ.
-### `npm install plotly.js react-plotly.js`
+  ```bash
+  npm install plotly.js react-plotly.js
+  ```
 
 Cài đặt Papaparse để đọc file .csv.
-### `npm install papaparse`
+  ```bash
+  npm install papaparse
+  ```
 
 Chạy lệnh sau để khởi chạy chương trình:
   ```bash

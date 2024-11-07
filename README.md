@@ -2,15 +2,15 @@
 
 Dự án này được khởi tạo bằng [Create React App](https://github.com/facebook/create-react-app).
 
-## Cài đặt các thư viện cần thiết (Tại VSCode mở `Terminal` -> New Terminal)
+## Cài đặt các thư viện cần thiết (Tại VSCode mở `Terminal` -> `New Terminal`)
 
-Trong terminal chạy các lệnh sau:
-###Cài đặt thư viện Plotly.js và react-plotly.js để tạo biểu đồ.
+Trong `Terminal` chạy các lệnh sau:
+###Cài đặt thư viện `Plotly.js` và `react-plotly.js` để tạo biểu đồ.
   ```bash
   npm install plotly.js react-plotly.js
   ```
 
-###Cài đặt Papaparse để đọc file .csv.
+###Cài đặt `Papaparse` để đọc file `.csv`.
   ```bash
   npm install papaparse
   ```
@@ -21,7 +21,7 @@ Trong terminal chạy các lệnh sau:
   ```
 ### Yêu cầu hệ thống
 
-- **Node.js** và **npm**: Đảm bảo bạn đã cài đặt Node.js và npm trên máy tính của mình. Kiểm tra bằng lệnh:
+- `**Node.js**` và `**npm**`: Đảm bảo bạn đã cài đặt `Node.js` và `npm` trên máy tính của mình. Kiểm tra lần lượt bằng các lệnh:
 - 
   ```bash
   node -v

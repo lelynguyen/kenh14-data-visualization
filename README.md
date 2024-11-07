@@ -12,7 +12,8 @@ Cài đặt Papaparse để đọc file .csv.
 ### `npm install papaparse`
 
 Chạy lệnh sau để khởi chạy chương trình:
-### `npm start`
+  ```
+  npm start
 
 ### Yêu cầu hệ thống
 

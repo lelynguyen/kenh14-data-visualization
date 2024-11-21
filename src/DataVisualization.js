@@ -1,49 +1,66 @@
 // src/DataVisualization.js
 import React, { useEffect, useState } from "react";
 import Papa from "papaparse";
+// Nếu bạn gặp vấn đề với Plotly.js, sử dụng cách import dưới đây
+// import createPlotlyComponent from "react-plotly.js/factory";
+// import Plotly from "plotly.js-basic-dist-min";
+// const Plot = createPlotlyComponent(Plotly);
+
 import Plot from "react-plotly.js";
 
 const DataVisualization = () => {
   const [data, setData] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("Tất cả");
+  const [selectedAuthor, setSelectedAuthor] = useState("Tất cả");
 
   useEffect(() => {
-    Papa.parse("/data.csv", {
+    Papa.parse("/merged_news_data.csv", {
       download: true,
       header: true,
       complete: function (results) {
+        console.log("Dữ liệu CSV:", results.data);
         setData(results.data);
       },
     });
   }, []);
 
-  // Lọc dữ liệu dựa trên chuyên mục được chọn
+  // Lọc dữ liệu dựa trên tác giả được chọn
   const filteredData =
-    selectedCategory === "Tất cả"
+    selectedAuthor === "Tất cả"
       ? data
-      : data.filter((item) => item.chuyen_muc === selectedCategory);
+      : data.filter((item) => item.author === selectedAuthor);
 
   // Chuyển đổi định dạng ngày và số lượt xem
-  const dates = filteredData.map((item) => new Date(item.ngay_dang));
-  const views = filteredData.map((item) => Number(item.so_luot_xem));
+  const dates = filteredData.map((item) => new Date(item.uploadtime));
+  const views = filteredData.map((item) => Number(item.views));
 
-  // Thống kê số bài viết theo chuyên mục
-  const categoryCounts = {};
+  // Kiểm tra và loại bỏ các giá trị không hợp lệ
+  const validData = filteredData.filter(
+    (item) =>
+      item.uploadtime &&
+      !isNaN(new Date(item.uploadtime)) &&
+      item.views &&
+      !isNaN(Number(item.views))
+  );
+
+  const validDates = validData.map((item) => new Date(item.uploadtime));
+  const validViews = validData.map((item) => Number(item.views));
+
+  // Thống kê số bài viết theo tác giả
+  const authorCounts = {};
   data.forEach((item) => {
-    const category = item.chuyen_muc || "Khác";
-    categoryCounts[category] = (categoryCounts[category] || 0) + 1;
+    const author = item.author || "Khác";
+    authorCounts[author] = (authorCounts[author] || 0) + 1;
   });
 
-  // Thống kê từ khóa
-  const keywordCounts = {};
+  // Thống kê top 10 tác giả được quan tâm và số lượt xem các bài viết của họ
+  const authorViews = {};
   data.forEach((item) => {
-    const keywords = item.tu_khoa ? item.tu_khoa.split(", ") : [];
-    keywords.forEach((keyword) => {
-      keywordCounts[keyword] = (keywordCounts[keyword] || 0) + 1;
-    });
+    const author = item.author || "Khác";
+    const viewCount = item.views ? Number(item.views) : 0;
+    authorViews[author] = (authorViews[author] || 0) + viewCount;
   });
 
-  const topKeywords = Object.entries(keywordCounts)
+  const topAuthors = Object.entries(authorViews)
     .sort((a, b) => b[1] - a[1])
     .slice(0, 10);
 
@@ -51,17 +68,17 @@ const DataVisualization = () => {
     <div className="container">
       <h1>Phân tích dữ liệu Kenh14</h1>
 
-      {/* Dropdown chọn chuyên mục */}
+      {/* Dropdown chọn tác giả */}
       <div className="filter">
-        <label htmlFor="category">Chọn chuyên mục: </label>
+        <label htmlFor="author">Chọn tác giả: </label>
         <select
-          id="category"
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
+          id="author"
+          value={selectedAuthor}
+          onChange={(e) => setSelectedAuthor(e.target.value)}
         >
-          {["Tất cả", ...Object.keys(categoryCounts)].map((cat) => (
-            <option key={cat} value={cat}>
-              {cat}
+          {["Tất cả", ...Object.keys(authorCounts)].map((author) => (
+            <option key={author} value={author}>
+              {author}
             </option>
           ))}
         </select>
@@ -72,8 +89,8 @@ const DataVisualization = () => {
         <Plot
           data={[
             {
-              x: dates,
-              y: views,
+              x: validDates,
+              y: validViews,
               type: "scatter",
               mode: "lines+markers",
               marker: { color: "blue" },
@@ -87,60 +104,40 @@ const DataVisualization = () => {
         />
       </div>
 
-      {/* Biểu đồ số bài viết theo chuyên mục */}
+      {/* Biểu đồ số bài viết theo tác giả */}
       <div className="chart">
         <Plot
           data={[
             {
-              x: Object.keys(categoryCounts),
-              y: Object.values(categoryCounts),
+              x: Object.keys(authorCounts),
+              y: Object.values(authorCounts),
               type: "bar",
               marker: { color: "orange" },
             },
           ]}
           layout={{
-            title: "Số bài viết theo chuyên mục",
-            xaxis: { title: "Chuyên mục" },
+            title: "Số bài viết theo tác giả",
+            xaxis: { title: "Tác giả" },
             yaxis: { title: "Số bài viết" },
           }}
         />
       </div>
 
-      {/* Biểu đồ tương quan giữa lượt xem và lượt chia sẻ */}
+      {/* Biểu đồ top 10 tác giả được quan tâm */}
       <div className="chart">
         <Plot
           data={[
             {
-              x: filteredData.map((item) => Number(item.so_luot_xem)),
-              y: filteredData.map((item) => Number(item.luot_chia_se)),
-              mode: "markers",
-              type: "scatter",
-              marker: { size: 8, color: "green" },
-            },
-          ]}
-          layout={{
-            title: "Tương quan giữa lượt xem và lượt chia sẻ",
-            xaxis: { title: "Lượt xem" },
-            yaxis: { title: "Lượt chia sẻ" },
-          }}
-        />
-      </div>
-
-      {/* Biểu đồ top 10 từ khóa được quan tâm */}
-      <div className="chart">
-        <Plot
-          data={[
-            {
-              x: topKeywords.map((k) => k[0]),
-              y: topKeywords.map((k) => k[1]),
+              x: topAuthors.map((a) => a[0]),
+              y: topAuthors.map((a) => a[1]),
               type: "bar",
               marker: { color: "purple" },
             },
           ]}
           layout={{
-            title: "Top 10 từ khóa được quan tâm",
-            xaxis: { title: "Từ khóa" },
-            yaxis: { title: "Tần suất" },
+            title: "Top 10 tác giả được quan tâm",
+            xaxis: { title: "Tác giả" },
+            yaxis: { title: "Lượt xem" },
           }}
         />
       </div>
